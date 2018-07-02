@@ -1,3 +1,8 @@
+'''
+addition attempt of the nir256
+
+'''
+
 from .common import SeaBreezeError
 from .spectrometer import (
                             SpectrometerFeatureUSB2000,
@@ -19,6 +24,7 @@ from .spectrometer import (
                             SpectrometerFeatureSTS,
                             SpectrometerFeatureQEPRO,
                             SpectrometerFeatureVENTANA,
+                            SpectrometerFeatureNIR256,
                           )
 
 from .wavelength import WavelengthCoefficientsEEPromFeature
@@ -64,6 +70,20 @@ class HR2000(SpectrometerFeatureHR2000,
     _INTEGRATION_TIME_MAX = 655350000
     _INTEGRATION_TIME_BASE = 1000
     _MAX_PIXEL_VALUE = 4095
+class NIR256(SpectrometerFeatureNIR256,
+             WavelengthCoefficientsEEPromFeature,
+             NonlinearityCoefficientsEEPromFeature,
+             EEPromFeature,
+             NoShutterFeature,
+             NoTecFeature,
+             NotImplementedWrapper):
+    _ENDPOINT_MAP = EndPoints['NIR256']
+    _PIXELS = 256  # FIXME
+    _RAW_SPECTRUM_LEN = (256 * 2) + 1
+    _INTEGRATION_TIME_MIN = 1000
+    _INTEGRATION_TIME_MAX = 655350000
+    _INTEGRATION_TIME_BASE = 1000
+    _MAX_PIXEL_VALUE = 16383
 
 class HR4000(SpectrometerFeatureHR4000,
              WavelengthCoefficientsEEPromFeature,
@@ -339,5 +359,6 @@ USBInterfaces = {
     0x4000: STS,
     0x4004: QEPRO,
     0x5000: VENTANA,
+    0x1010: NIR256,
 }
 

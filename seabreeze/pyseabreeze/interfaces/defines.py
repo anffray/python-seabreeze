@@ -1,8 +1,14 @@
+'''
+addition attempt of the nir256
+
+'''
+
 """
 File:           defines.py
 Author:         Andreas Poehlmann
 
 Some definitions
+
 """
 
 VendorId = 0x2457
@@ -26,6 +32,7 @@ ModelNames = {
     0x4000: 'STS',
     0x4004: 'QEPRO',
     0x5000: 'VENTANA',
+    0x1010: 'NIR256',
 }
 ProductIds = list(ModelNames.keys())
 SpectrometerClasses = list(ModelNames.values())
@@ -50,6 +57,7 @@ DarkPixels = {
     'STS'	  : [],
     'QEPRO'	  : list(range(0, 4)) + list(range(1040, 1044)),
     'VENTANA'	  : [],
+    'NIR256'	  : [],####to be determined
 }
 
 
@@ -87,6 +95,7 @@ EndPoints= {
      'STS'	   : _EMDUAL,
      'QEPRO'	   : _EMDUAL,
      'VENTANA'	   : _EMVENT,
+     'NIR256'	   : _EML2K,
 }
 
 
@@ -177,6 +186,10 @@ TriggerModes = {
        'FREE_RUNNING' : 0,
        'SOFTWARE'     : 1,
        'EXT_HW'       : 3,
+        },
+    'NIR256'	   : { 
+       'FREE_RUNNING' : 0,
+       'SOFTWARE'     : 1,
         },
 }
 

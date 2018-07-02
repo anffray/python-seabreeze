@@ -1,4 +1,7 @@
+'''
+addition attempt of the nir256
 
+'''
 from .common import SeaBreezeError, get_pyseabreeze_decorator
 from .communication import USBCommOOI, USBCommOBP
 from .defines import ModelNames, DarkPixels, TriggerModes
@@ -358,6 +361,8 @@ class SpectrometerFeatureUSB2000(SpectrometerFeatureOOI2K):
 
 
 class SpectrometerFeatureHR2000(SpectrometerFeatureOOI2K):
+    pass
+class SpectrometerFeatureNIR256(SpectrometerFeatureOOI2K):
     pass
 
 
